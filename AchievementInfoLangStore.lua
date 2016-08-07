@@ -117,6 +117,49 @@ LANG_STORE.DE.SettingsOption.DebugModeWarning = "In den meißten Fällen muss di
 
 --[[
     French version
-    @author /
+    @author Llwydd
 ]]
--- missing
+-- AddOn Output
+LANG_STORE.FR.Updated = "Mis à jour"
+LANG_STORE.FR.Completed = "Terminé"
+ 
+-- AddOn Settings Header
+LANG_STORE.FR.SettingsHeader = {}
+LANG_STORE.FR.SettingsHeader.General = "Général"
+ 
+LANG_STORE.FR.SettingsHeader.Categories = "Catégories"
+LANG_STORE.FR.SettingsHeader.CategoriesDescription = "Ici vous pouvez gérer les notifications par catégories"
+ 
+LANG_STORE.FR.SettingsHeader.Development = "Développement"
+ 
+-- AddOn Settings General Options
+LANG_STORE.FR.SettingsOption = {}
+LANG_STORE.FR.SettingsOption.AddOnEnabled = "Extension activée"
+LANG_STORE.FR.SettingsOption.AddOnEnabledTooltip = "Active ou désactive cette extension"
+LANG_STORE.FR.SettingsOption.AddOnEnabledWarning = "Seul les messages sortants peuvent être désactivés"
+ 
+LANG_STORE.FR.SettingsOption.ShowEveryUpdate = "Affichage de chaque mise à jour"
+LANG_STORE.FR.SettingsOption.ShowEveryUpdateTooltip = "Affiche un message pour chaque mise à jour d'un succès. Le reste du temps les messages n'apparaissent que sous forme de plage de x%"
+ 
+LANG_STORE.FR.SettingsOption.ShowUpdateSteps = "Etapes de notification (%)"
+LANG_STORE.FR.SettingsOption.ShowUpdateStepsTooltip = "Définie la plage des notifications, si '" .. LANG_STORE.FR.SettingsOption.ShowEveryUpdate .. "' est désactivé"
+ 
+LANG_STORE.FR.SettingsOption.ShowDetails = "Affichage des détails"
+LANG_STORE.FR.SettingsOption.ShowDetailsTooltip = "Affiche les détails de progression de chaque message de mise à jour"
+ 
+LANG_STORE.FR.SettingsOption.ShowOpenDetailsOnly = "Affichage des détails incomplets"
+LANG_STORE.FR.SettingsOption.ShowOpenDetailsOnlyTooltip = "Affiche, dans les détails, uniquement les taches incomplètes d'un succès"
+ 
+-- pCHat compatibility option
+LANG_STORE.FR.SettingsOption.OneElementPerLine = "Sortie ligne par ligne"
+LANG_STORE.FR.SettingsOption.OneElementPerLineTooltip = "Affiche chaque partie d'un succès sur une simple ligne"
+LANG_STORE.FR.SettingsOption.OneElementPerLineWarning = "Nécessite la compatibilité avec pChat"
+ 
+-- AddOn Settings Category Options
+-- The categories are taken from the game language files
+LANG_STORE.FR.SettingsOption.CategoryTooltip = "Affiche les messages pour la catégorie"
+ 
+-- AddOn Settings Development Options
+LANG_STORE.FR.SettingsOption.DebugMode = "Mode de débogage"
+LANG_STORE.FR.SettingsOption.DebugModeTooltip = "Affiche les messages cachés pour vérifier s'ils n'ont pas été cachés par erreur"
+LANG_STORE.FR.SettingsOption.DebugModeWarning = "Dans la majorité des cas vous n'avez pas besoin d'activer cette option"
