@@ -29,8 +29,8 @@ function AchievementInfo.loadLanguage()
 
     if lang == "de" then
         return LANG_STORE.DE
---    elseif lang == "fr" then
---        return LANG_STORE.EN
+    elseif lang == "fr" then
+        return LANG_STORE.FR
     else
         return LANG_STORE.EN
     end
