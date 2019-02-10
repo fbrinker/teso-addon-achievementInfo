@@ -24,6 +24,18 @@ function AchievementInfo.loadSavedVars()
         cat8  = true,
         cat9  = true,
         cat10 = true,
+        cat11 = true,
+        cat12 = true,
+        cat13 = true,
+        cat14 = true,
+        cat15 = true,
+        cat16 = true,
+        cat17 = true,
+        cat18 = true,
+        cat19 = true,
+        cat20 = true,
+        cat21 = true,
+        cat22 = true,
         devDebug                = false
     }
 
