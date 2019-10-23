@@ -17,3 +17,6 @@ I'll still be available here and be able to update the ESOUI page.
 **IMPORTANT: Github is a mirror.** Please contribute at [git.f-brinker.de/elderscrolls-addon-achievementInfo](https://git.f-brinker.de/fbrinker/elderscrolls-addon-achievementInfo) - You can login with your Github or Gitlab account (OAuth2).
 
 Then, create a fork of the repository, do what you have to do and create a pull-request afterwards. Feel free to contact me any time.
+
+#### Linting
+Luacheck is used to check the LUA code. [Documentation](https://luacheck.readthedocs.io/en/stable/index.html)

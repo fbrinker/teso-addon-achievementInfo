@@ -47,7 +47,7 @@ end
 -- Function to create the settings panel
 function AchievementInfo.createSettingsPanel()
     local LAM = LibStub("LibAddonMenu-2.0")
-    
+
     local panelData = {
         type = "panel",
         name = AchievementInfo.name,
@@ -119,14 +119,13 @@ function AchievementInfo.createSettingsPanel()
             text = LANG.SettingsHeader.CategoriesDescription .. ":"
         }
     }
-    
+
     -- Add categories dynamically
     local numCats = GetNumAchievementCategories()
-    local catCount = 1
 
     for i = 1, numCats, 1 do
-        catName, numSubCats = GetAchievementCategoryInfo(i)
-        
+        catName = GetAchievementCategoryInfo(i)
+
         table.insert(optionsTable, {
             type = "checkbox",
             name = catName,
@@ -135,13 +134,13 @@ function AchievementInfo.createSettingsPanel()
             setFunc = function() AchievementInfo.settingToogle("cat"..i) end
         })
     end
-    
+
     -- Debug setting at the end
     table.insert(optionsTable, {
 		type = "header",
 		name = AchievementInfo.clrSettingsHeader .. LANG.SettingsHeader.Development
 	})
-    
+
     table.insert(optionsTable, {
         type = "checkbox",
         name = LANG.SettingsOption.DebugMode,
@@ -150,7 +149,7 @@ function AchievementInfo.createSettingsPanel()
         setFunc = function() AchievementInfo.settingToogle("devDebug") end,
         warning = LANG.SettingsOption.DebugModeWarning
     })
-    
+
     -- Register
     LAM:RegisterAddonPanel(AchievementInfo.name.."SettingsPanel", panelData)
     LAM:RegisterOptionControls(AchievementInfo.name.."SettingsPanel", optionsTable)

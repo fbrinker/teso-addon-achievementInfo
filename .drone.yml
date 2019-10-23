@@ -11,9 +11,16 @@ steps:
   commands:
   - git clone https://git.f-brinker.de/fbrinker/elderscrolls-addon-achievementInfo.git sources
   - cd sources && git checkout $DRONE_COMMIT
-  when:
-    event: 
-      - tag
+
+- name: lint
+  image: alpine
+  commands:
+    - apk update
+    - apk add --no-cache build-base curl unzip
+    - apk add --no-cache lua5.1 lua5.1-dev luarocks5.1
+    - luarocks-5.1 install luacheck
+    - cd sources
+    - luacheck ./*.lua
 
 - name: build
   image: alpine
@@ -25,7 +32,7 @@ steps:
     # Set Version and AddonVersion
     - export VERSION=$DRONE_TAG
     - export ADDON_VERSION=$(echo $DRONE_TAG | sed -E 's/(0|)\.//g')
-    - sed -i "s/%VERSION%/$VERSION/g" sources/AchievementInfoCommon.lua
+    - sed -i "s/\"%VERSION%\"/$VERSION/g" sources/AchievementInfoCommon.lua
     - sed -i "s/%VERSION%/$VERSION/g" sources/AchievementInfo.txt
     - sed -i "s/%ADDON_VERSION%/$ADDON_VERSION/g" sources/AchievementInfo.txt
     # Rename and zip

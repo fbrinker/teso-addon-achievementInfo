@@ -7,7 +7,7 @@
 
 -- Init
 AchievementInfo.hijackedFirstLoad = false
-function AchievementInfo.initialize(eventCode, addOnName)
+function AchievementInfo.initialize(_, addOnName)
     if (addOnName ~= AchievementInfo.name) then return end
 
     --
@@ -26,7 +26,7 @@ function AchievementInfo.initialize(eventCode, addOnName)
         -- Register Events
         AchievementInfo.registerEvent(EVENT_ACHIEVEMENT_UPDATED, AchievementInfo.onAchievementUpdated)
     end
-    
+
     -- Status Output (debug mode only)
     if AchievementInfo.settingGet("devDebug") then
         zo_callLater(function()
