@@ -1,0 +1,57 @@
+---
+kind: pipeline
+name: default
+
+clone:
+  disable: true
+
+steps:
+- name: clone
+  image: alpine/git
+  commands:
+  - git clone https://git.f-brinker.de/fbrinker/elderscrolls-addon-achievementInfo.git sources
+  - cd sources && git checkout $DRONE_COMMIT
+  when:
+    event: 
+      - tag
+
+- name: build
+  image: alpine
+  commands:
+    - apk update && apk add --no-cache zip
+    # Delete unneeded files/dirs
+    - rm -rf sources/.git
+    - rm -rf sources/.drone.yml
+    # Set Version and AddonVersion
+    - export VERSION=$DRONE_TAG
+    - export ADDON_VERSION=$(echo $DRONE_TAG | sed -E 's/(0|)\.//g')
+    - sed -i "s/%VERSION%/$VERSION/g" sources/AchievementInfoCommon.lua
+    - sed -i "s/%VERSION%/$VERSION/g" sources/AchievementInfo.txt
+    - sed -i "s/%ADDON_VERSION%/$ADDON_VERSION/g" sources/AchievementInfo.txt
+    # Rename and zip
+    - mv sources AchievementInfo
+    - zip -r "AchievementInfo-$DRONE_TAG.zip" ./AchievementInfo
+  when:
+    event: 
+      - tag
+
+- name: release
+  image: plugins/gitea-release
+  settings:
+    base_url: https://git.f-brinker.de
+    api_key:
+      from_secret: gitea_token
+    files: ./*.zip
+    draft: true
+    title: AchievementInfo ${DRONE_TAG}
+    note: AchievementInfo/CHANGELOG.md
+  checksum:
+    - md5
+    - sha1
+    - sha256
+    - sha512
+    - adler32
+    - crc32
+  when:
+    event: 
+      - tag
