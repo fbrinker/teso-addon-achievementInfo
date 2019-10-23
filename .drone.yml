@@ -42,7 +42,6 @@ steps:
     api_key:
       from_secret: gitea_token
     files: ./*.zip
-    draft: true
     title: AchievementInfo ${DRONE_TAG}
     note: AchievementInfo/CHANGELOG.md
   checksum:
