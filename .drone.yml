@@ -44,13 +44,6 @@ steps:
     files: ./*.zip
     title: AchievementInfo ${DRONE_TAG}
     note: AchievementInfo/CHANGELOG.md
-    checksum:
-      - md5
-      - sha1
-      - sha256
-      - sha512
-      - adler32
-      - crc32
   when:
     event: 
       - tag
