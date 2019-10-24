@@ -6,7 +6,7 @@
 
 
 -- Do the magic
-function AchievementInfo.onAchievementUpdated(eventCode, achId)
+function AchievementInfo.onAchievementUpdated(_, achId)
     local output            = ""
 
     -- addOn enabled?
@@ -50,7 +50,6 @@ function AchievementInfo.onAchievementUpdated(eventCode, achId)
     local percentageStepSize    = AchievementInfo.settingGet("genShowUpdateSteps")
 
     local link = GetAchievementLink(achId, LINK_STYLE_BRACKET)
-    local name, description = GetAchievementInfo(achId)
     local catName = "/"
 
     if categoryId ~= false then
@@ -61,19 +60,19 @@ function AchievementInfo.onAchievementUpdated(eventCode, achId)
 
     local numCriteria = GetAchievementNumCriteria(achId)
     for i = 1, numCriteria, 1 do
-        local name, numCompleted, numRequired = GetAchievementCriterion(achId, i)
+        local description, numCompleted, numRequired = GetAchievementCriterion(achId, i)
         local tmpOutput = ""
 
-        if i > 1 and AchievementInfo.settingGet("genOnePerLine") == false then 
-            tmpOutput = tmpOutput .. ", " 
+        if i > 1 and AchievementInfo.settingGet("genOnePerLine") == false then
+            tmpOutput = tmpOutput .. ", "
         end
 
-        tmpOutput = tmpOutput .. name .. " "
+        tmpOutput = tmpOutput .. description .. " "
         tmpOutput = tmpOutput .. AchievementInfo.calcCriteriaColor(numCompleted, numRequired) .. numCompleted .. "|r"
         tmpOutput = tmpOutput .. AchievementInfo.clrDefault .. "/" .. "|r"
         tmpOutput = tmpOutput .. AchievementInfo.clrCriteriaComplete .. numRequired .. "|r"
         tmpOutput = tmpOutput .. AchievementInfo.clrDefault
-        
+
         if AchievementInfo.settingGet("genShowOpenDetailsOnly") == true and numCompleted ~= numRequired then
             detailOutput[detailOutputCount] = tmpOutput
             detailOutputCount = detailOutputCount + 1
@@ -103,14 +102,14 @@ function AchievementInfo.onAchievementUpdated(eventCode, achId)
         end
     end
 
-    -- show details?    
+    -- show details?
     local detailsCount = AchievementInfo.tableLength(detailOutput)
-    if AchievementInfo.settingGet("genShowDetails") == true and detailsCount > 0 and AchievementInfo.settingGet("genOnePerLine") == false then        
+    if AchievementInfo.settingGet("genShowDetails") == true and detailsCount > 0 and AchievementInfo.settingGet("genOnePerLine") == false then
         output = output .. " - "
-        
+
         for i = 1, detailsCount, 1 do
-            output = output .. detailOutput[i]            
-        end        
+            output = output .. detailOutput[i]
+        end
     else
         output = output .. "."
     end
@@ -135,12 +134,12 @@ function AchievementInfo.onAchievementUpdated(eventCode, achId)
     --
 
     AchievementInfo.echo(output)
-    
+
     -- output the details line by line - start @2 because the normal output happend before (achievement name)
     if AchievementInfo.settingGet("genShowDetails") == true and AchievementInfo.settingGet("genOnePerLine") == true then
         for i = 1, AchievementInfo.tableLength(detailOutput), 1 do
-            AchievementInfo.echo(detailOutput[i])           
-        end 
+            AchievementInfo.echo(detailOutput[i])
+        end
     end
 end
 
@@ -163,13 +162,11 @@ end
 -- Get the correct achievement category
 function AchievementInfo.getCorrectAchievementCategoryId(achId)
     local previousAchievementId = GetPreviousAchievementInLine(achId)
-    local categoryId            = 0
 
     if AchievementInfo.checkForValidCategory(achId) == false and previousAchievementId ~= 0 then
         return AchievementInfo.getCorrectAchievementCategoryId(previousAchievementId)
     elseif AchievementInfo.checkForValidCategory(achId) then
-        categoryId = GetCategoryInfoFromAchievementId(achId)
-        return categoryId
+        return GetCategoryInfoFromAchievementId(achId)
     else
         return false
     end
