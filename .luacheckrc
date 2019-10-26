@@ -12,6 +12,7 @@ read_globals = {
     "GetCVar",
     "GetNumAchievementCategories",
     "GetPreviousAchievementInLine",
+    "LibAddonMenu2",
     "CHAT_SYSTEM",
     "EVENT_ACHIEVEMENT_UPDATED",
     "EVENT_ADD_ON_LOADED",
