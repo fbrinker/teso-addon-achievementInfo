@@ -27,7 +27,10 @@ steps:
   commands:
     - apk update && apk add --no-cache zip
     # Delete unneeded files/dirs
-    - rm -rf sources/{.git,.drone.*,.luacheckrc}
+    - rm -rf sources/.git
+    - rm -f sources/.drone.status
+    - rm -f sources/.drone.yml
+    - rm -f sources/.luacheckrc
     # Set Version and AddonVersion
     - export VERSION=$DRONE_TAG
     - export ADDON_VERSION=$(echo $DRONE_TAG | sed -E 's/(0|)\.//g')
