@@ -8,7 +8,7 @@
 AchievementInfo             = {}
 AchievementInfo.name        = "AchievementInfo"
 AchievementInfo.author      = "Asto, @Astarax"
-AchievementInfo.version     = "%VERSION%"
+AchievementInfo.version     = 0.123456789
 AchievementInfo.savedVars   = nil
 AchievementInfo.LangStore   = {}
 

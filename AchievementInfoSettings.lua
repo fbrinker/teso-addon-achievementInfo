@@ -46,8 +46,6 @@ end
 
 -- Function to create the settings panel
 function AchievementInfo.createSettingsPanel()
-    local LAM = LibStub("LibAddonMenu-2.0")
-
     local panelData = {
         type = "panel",
         name = AchievementInfo.name,
@@ -151,8 +149,8 @@ function AchievementInfo.createSettingsPanel()
     })
 
     -- Register
-    LAM:RegisterAddonPanel(AchievementInfo.name.."SettingsPanel", panelData)
-    LAM:RegisterOptionControls(AchievementInfo.name.."SettingsPanel", optionsTable)
+    LibAddonMenu2:RegisterAddonPanel(AchievementInfo.name.."SettingsPanel", panelData)
+    LibAddonMenu2:RegisterOptionControls(AchievementInfo.name.."SettingsPanel", optionsTable)
 end
 
 

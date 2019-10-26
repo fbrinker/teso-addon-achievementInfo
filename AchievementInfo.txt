@@ -1,17 +1,16 @@
 ## Title: AchievementInfo
 ## Description: Displays progress updates for achievements in the chat. You can display update-details like 'Slay 25/100 Monsters' if interested. |cFF0000Important:|r The messages appear only when an achievement is updated. This is no permanent tracking tool.
-## AddOnVersion %ADDON_VERSION%
-## Version: %VERSION%
+## AddOnVersion 0.123456789
+## Version: 0.123456789
 ## Author: |c87B7CCAsto|r, @Astarax
 ## Contact: mail@coded-with-heart.com
 
-## APIVersion: 100028
+## APIVersion: 100029
 ## SavedVariables: ACHIEVEMENT_INFO_DB
 
-## OptionalDependsOn: LibAddonMenu-2.0, LibStub
+## OptionalDependsOn: LibAddonMenu-2.0
 
 ## Libraries:
-Libs/LibStub/LibStub.lua
 Libs/LibAddonMenu-2.0/LibAddonMenu-2.0.lua
 
 ## Helper:

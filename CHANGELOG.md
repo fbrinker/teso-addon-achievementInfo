@@ -1,5 +1,9 @@
 #### Notable Changes
 
+##### Release 2.24
+* Updated Dependencies
+* Removed LibStub Usage
+
 ##### Release 2.20
 * Now all the new achievement categories are enabled by default in the settings panel
 

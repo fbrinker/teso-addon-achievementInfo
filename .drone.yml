@@ -27,13 +27,13 @@ steps:
   commands:
     - apk update && apk add --no-cache zip
     # Delete unneeded files/dirs
-    - rm -rf sources/{.git,.drone.yml,.luacheckrc}
+    - rm -rf sources/{.git,.drone.*,.luacheckrc}
     # Set Version and AddonVersion
     - export VERSION=$DRONE_TAG
     - export ADDON_VERSION=$(echo $DRONE_TAG | sed -E 's/(0|)\.//g')
-    - sed -i "s/\"%VERSION%\"/$VERSION/g" sources/AchievementInfoCommon.lua
-    - sed -i "s/%VERSION%/$VERSION/g" sources/AchievementInfo.txt
-    - sed -i "s/%ADDON_VERSION%/$ADDON_VERSION/g" sources/AchievementInfo.txt
+    - sed -i "s/0.123456789/$VERSION/g" sources/AchievementInfoCommon.lua
+    - sed -i "s/0.123456789/$VERSION/g" sources/AchievementInfo.txt
+    - sed -i "s/0.123456789/$ADDON_VERSION/g" sources/AchievementInfo.txt
     # Rename and zip
     - mv sources AchievementInfo
     - zip -r "AchievementInfo-$DRONE_TAG.zip" ./AchievementInfo
