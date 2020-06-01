@@ -1,5 +1,8 @@
 #### Notable Changes
 
+##### Release 3.0
+* Removed the bundled Dependency LibAddonMenu-2.0: You have to download it on your own now
+
 ##### Release 2.24
 * Updated Dependencies
 * Removed LibStub Usage
