@@ -20,3 +20,9 @@ Then, create a fork of the repository, do what you have to do and create a pull-
 
 #### Linting
 Luacheck is used to check the LUA code. [Documentation](https://luacheck.readthedocs.io/en/stable/index.html)
+
+## API Version Upgrade
+* Increment the API Version in the _AchievementInfo.txt_ file
+* Commit: `git commit -am "New Api Version"`
+* Add new Tag `git tag x.yz`
+* Push `git push && git push --tags`
