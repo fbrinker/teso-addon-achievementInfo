@@ -5,7 +5,7 @@
 ## Author: |c87B7CCAsto|r, @Astarax
 ## Contact: mail@coded-with-heart.com
 
-## APIVersion: 100030
+## APIVersion: 100031
 ## SavedVariables: ACHIEVEMENT_INFO_DB
 
 ## OptionalDependsOn: LibAddonMenu-2.0
