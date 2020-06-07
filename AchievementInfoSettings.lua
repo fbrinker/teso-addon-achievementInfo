@@ -5,6 +5,15 @@
 
 
 
+-- Function to determine if Account Wide Settings should be used
+function AchievementInfo.loadUseAccountWideSettings()
+    return ZO_SavedVars:New("ACHIEVEMENT_INFO_DB_USE_AW", 1, nil, {
+        enabled = false
+    })
+end
+
+
+
 -- Function to set and load the Saved Variables
 function AchievementInfo.loadSavedVars()
     local defaults = {
@@ -36,8 +45,13 @@ function AchievementInfo.loadSavedVars()
         cat20 = true,
         cat21 = true,
         cat22 = true,
+        -- ... new one default to true
         devDebug                = false
     }
+
+    if AchievementInfo.useAccountWideSettings["enabled"] == true then
+        return ZO_SavedVars:NewAccountWide("ACHIEVEMENT_INFO_DB", 1, nil, defaults)
+    end
 
     return ZO_SavedVars:New("ACHIEVEMENT_INFO_DB", 1, nil, defaults)
 end
@@ -49,16 +63,16 @@ function AchievementInfo.createSettingsPanel()
     local panelData = {
         type = "panel",
         name = AchievementInfo.name,
-        displayName = AchievementInfo.clrDefault..AchievementInfo.name,
+        displayName = AchievementInfo.clrDefault .. AchievementInfo.name,
         author = AchievementInfo.author,
-        version = string.format("%.1f", AchievementInfo.version),
+        version = string.format("%.2f", AchievementInfo.version),
         slashCommand = "/achievementInfo"
     }
 
     local optionsTable = {
         [1] = {
             type = "header",
-            name = AchievementInfo.clrSettingsHeader..LANG.SettingsHeader.General
+            name = AchievementInfo.clrSettingsHeader .. LANG.SettingsHeader.General
         },
         [2] = {
             type = "checkbox",
@@ -70,12 +84,20 @@ function AchievementInfo.createSettingsPanel()
         },
         [3] = {
             type = "checkbox",
+            name = LANG.SettingsOption.AccountWideEnabled,
+            tooltip = LANG.SettingsOption.AccountWideEnabledTooltip,
+            getFunc = function() return AchievementInfo.useAccountWideSettings["enabled"] end,
+            setFunc = function() AchievementInfo.toggleAccountWideSettings() end,
+            requiresReload = true
+        },
+        [4] = {
+            type = "checkbox",
             name = LANG.SettingsOption.ShowEveryUpdate,
             tooltip = LANG.SettingsOption.ShowEveryUpdateTooltip,
             getFunc = function() return AchievementInfo.settingGet("genShowEveryUpdate") end,
             setFunc = function() AchievementInfo.settingToogle("genShowEveryUpdate") end
         },
-        [4] = {
+        [5] = {
             type = "slider",
             name = LANG.SettingsOption.ShowUpdateSteps,
             tooltip = LANG.SettingsOption.ShowUpdateStepsTooltip,
@@ -86,21 +108,21 @@ function AchievementInfo.createSettingsPanel()
             setFunc = function(value) AchievementInfo.settingSet("genShowUpdateSteps", value) end,
             default = 25
         },
-        [5] = {
+        [6] = {
             type = "checkbox",
             name = LANG.SettingsOption.ShowDetails,
             tooltip = LANG.SettingsOption.ShowDetailsTooltip,
             getFunc = function() return AchievementInfo.settingGet("genShowDetails") end,
             setFunc = function() AchievementInfo.settingToogle("genShowDetails") end
         },
-        [6] = {
+        [7] = {
             type = "checkbox",
             name = LANG.SettingsOption.ShowOpenDetailsOnly,
             tooltip = LANG.SettingsOption.ShowOpenDetailsOnlyTooltip,
             getFunc = function() return AchievementInfo.settingGet("genShowOpenDetailsOnly") end,
             setFunc = function() AchievementInfo.settingToogle("genShowOpenDetailsOnly") end
         },
-        [7] = {
+        [8] = {
             type = "checkbox",
             name = LANG.SettingsOption.OneElementPerLine,
             tooltip = LANG.SettingsOption.OneElementPerLineTooltip,
@@ -108,11 +130,11 @@ function AchievementInfo.createSettingsPanel()
             setFunc = function() AchievementInfo.settingToogle("genOnePerLine") end,
             warning = LANG.SettingsOption.OneElementPerLineWarning
         },
-        [8] = {
+        [9] = {
             type = "header",
             name = AchievementInfo.clrSettingsHeader .. LANG.SettingsHeader.Categories
         },
-        [9] = {
+        [10] = {
             type = "description",
             text = LANG.SettingsHeader.CategoriesDescription .. ":"
         }
@@ -128,8 +150,8 @@ function AchievementInfo.createSettingsPanel()
             type = "checkbox",
             name = catName,
             tooltip = LANG.SettingsOption.CategoryTooltip .. " '" .. catName .. "'",
-            getFunc = function() return AchievementInfo.settingGet("cat"..i) end,
-            setFunc = function() AchievementInfo.settingToogle("cat"..i) end
+            getFunc = function() return AchievementInfo.settingGetForCategory("cat" .. i) end,
+            setFunc = function() AchievementInfo.settingToogle("cat" .. i) end
         })
     end
 
@@ -149,8 +171,8 @@ function AchievementInfo.createSettingsPanel()
     })
 
     -- Register
-    LibAddonMenu2:RegisterAddonPanel(AchievementInfo.name.."SettingsPanel", panelData)
-    LibAddonMenu2:RegisterOptionControls(AchievementInfo.name.."SettingsPanel", optionsTable)
+    LibAddonMenu2:RegisterAddonPanel(AchievementInfo.name .. "SettingsPanel", panelData)
+    LibAddonMenu2:RegisterOptionControls(AchievementInfo.name .. "SettingsPanel", optionsTable)
 end
 
 
@@ -167,12 +189,35 @@ end
 
 
 
+-- Function to retrieve settings for categories (default true)
+function AchievementInfo.settingGetForCategory(id)
+    if AchievementInfo.savedVars[id] == nil then
+        AchievementInfo.savedVars[id] = true
+        return true
+    else
+        return AchievementInfo.savedVars[id]
+    end
+end
+
+
+
 -- Function to toggle Checkbox values
 function AchievementInfo.settingToogle(id)
     if AchievementInfo.savedVars[id] == false then
         AchievementInfo.savedVars[id] = true
     else
         AchievementInfo.savedVars[id] = false
+    end
+end
+
+
+
+-- Function to toggle Checkbox value for accountWideSettings
+function AchievementInfo.toggleAccountWideSettings()
+    if AchievementInfo.useAccountWideSettings["enabled"] == false then
+        AchievementInfo.useAccountWideSettings["enabled"] = true
+    else
+        AchievementInfo.useAccountWideSettings["enabled"] = false
     end
 end
 

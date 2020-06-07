@@ -6,7 +6,7 @@
 ## Contact: mail@coded-with-heart.com
 
 ## APIVersion: 100031
-## SavedVariables: ACHIEVEMENT_INFO_DB
+## SavedVariables: ACHIEVEMENT_INFO_DB ACHIEVEMENT_INFO_DB_USE_AW
 
 ## DependsOn: LibAddonMenu-2.0
 
