@@ -7,6 +7,23 @@ This is an **The Elderscrolls Online** addon. [See all details and the download 
 
 [Issue-Tracker](https://git.f-brinker.de/fbrinker/elderscrolls-addon-achievementInfo/issues)
 
+## Description
+
+### What is this AddOn about?
+
+I like achievements and I like to know what to do to complete them and what type of achievements exist without browsing through the entire achievement catalog: This AddOn displays lightweight chat notifications if you make progress in an achievement (please see the screenshots).
+
+### Features
+
+* Shows chat notifications if you do something that is needed for an achievement
+* Triggers on each action or just in x% steps of the achievements requirements (configurable)
+* Can show some details in the chat notification like (kill 250/1000 Humanoids)
+* You can toggle the notifications for each category
+* Lightweight: It is not always present and shows up only when necessary
+* You can enable account-wide settings
+
+![preview screenshot](screenshots/chat-1.jpg)
+
 ## Why is this a public project?
 
 In case I quit or pause playing TESO and cannot maintain this addon, feel free to contribute to keep this up to date and running.
