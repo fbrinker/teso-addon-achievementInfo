@@ -15,6 +15,7 @@ function AchievementInfo.initialize(_, addOnName)
         AchievementInfo.hijackedFirstLoad = true
 
         -- Load Saved Variables
+        AchievementInfo.useAccountWideSettings = AchievementInfo.loadUseAccountWideSettings()
         AchievementInfo.savedVars = AchievementInfo.loadSavedVars()
 
         -- Load Language Data

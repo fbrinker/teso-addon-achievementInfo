@@ -1,5 +1,9 @@
 #### Notable Changes
 
+##### Release 4.0
+* Added accountwide settings
+* Added an "use accountwide settings" option to the settings of each character
+
 ##### Release 3.0
 * Removed the bundled Dependency LibAddonMenu-2.0: You have to download it on your own now
 

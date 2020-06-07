@@ -35,6 +35,9 @@ LANG_STORE.EN.SettingsOption.AddOnEnabled = "AddOn enabled"
 LANG_STORE.EN.SettingsOption.AddOnEnabledTooltip = "Enable or disable this AddOn"
 LANG_STORE.EN.SettingsOption.AddOnEnabledWarning = "Only the output messages can be disabled here"
 
+LANG_STORE.EN.SettingsOption.AccountWideEnabled = "Use acctountwide Settings"
+LANG_STORE.EN.SettingsOption.AccountWideEnabledTooltip = "Use and save the settings for all of your characters"
+
 LANG_STORE.EN.SettingsOption.ShowEveryUpdate = "Show every update"
 LANG_STORE.EN.SettingsOption.ShowEveryUpdateTooltip = "Shows a message on every status update of an achievement. Otherwise the messages appear only in steps of x%"
 
@@ -85,6 +88,9 @@ LANG_STORE.DE.SettingsOption = {}
 LANG_STORE.DE.SettingsOption.AddOnEnabled = "AddOn aktiviert"
 LANG_STORE.DE.SettingsOption.AddOnEnabledTooltip = "Aktiviere oder deaktiviere dieses AddOn"
 LANG_STORE.DE.SettingsOption.AddOnEnabledWarning = "An dieser Stelle können nur die Ausgaben deaktiviert werden."
+
+LANG_STORE.DE.SettingsOption.AccountWideEnabled = "Accountübergreifende Einstellungen"
+LANG_STORE.DE.SettingsOption.AccountWideEnabledTooltip = "Benutze und speichere die Einstellungen für alle Charaktere"
 
 LANG_STORE.DE.SettingsOption.ShowEveryUpdate = "Zeige alle Fortschritte"
 LANG_STORE.DE.SettingsOption.ShowEveryUpdateTooltip = "Zeigt bei jeder Aktualisierung eines Erfolgs einen Hinweis. Alternativ wird nur in x% Schritten ein Status ausgegeben"
@@ -137,6 +143,9 @@ LANG_STORE.FR.SettingsOption = {}
 LANG_STORE.FR.SettingsOption.AddOnEnabled = "Extension activée"
 LANG_STORE.FR.SettingsOption.AddOnEnabledTooltip = "Active ou désactive cette extension"
 LANG_STORE.FR.SettingsOption.AddOnEnabledWarning = "Seul les messages sortants peuvent être désactivés"
+
+LANG_STORE.FR.SettingsOption.AccountWideEnabled = LANG_STORE.EN.SettingsOption.AccountWideEnabled
+LANG_STORE.FR.SettingsOption.AccountWideEnabledTooltip = LANG_STORE.EN.SettingsOption.AccountWideEnabledTooltip
 
 LANG_STORE.FR.SettingsOption.ShowEveryUpdate = "Affichage de chaque mise à jour"
 LANG_STORE.FR.SettingsOption.ShowEveryUpdateTooltip = "Affiche un message pour chaque mise à jour d'un succès. Le reste du temps les messages n'apparaissent que sous forme de plage de x%"
