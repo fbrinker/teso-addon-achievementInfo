@@ -35,8 +35,8 @@ LANG_STORE.EN.SettingsOption.AddOnEnabled = "AddOn enabled"
 LANG_STORE.EN.SettingsOption.AddOnEnabledTooltip = "Enable or disable this AddOn"
 LANG_STORE.EN.SettingsOption.AddOnEnabledWarning = "Only the output messages can be disabled here"
 
-LANG_STORE.EN.SettingsOption.AccountWideEnabled = "Use acctountwide Settings"
-LANG_STORE.EN.SettingsOption.AccountWideEnabledTooltip = "Use and save the settings for all of your characters"
+LANG_STORE.EN.SettingsOption.AccountWideEnabled = "Use account-wide Settings"
+LANG_STORE.EN.SettingsOption.AccountWideEnabledTooltip = "Use and edit the same settings for all characters"
 
 LANG_STORE.EN.SettingsOption.ShowEveryUpdate = "Show every update"
 LANG_STORE.EN.SettingsOption.ShowEveryUpdateTooltip = "Shows a message on every status update of an achievement. Otherwise the messages appear only in steps of x%"
