@@ -1,5 +1,8 @@
 #### Notable Changes
 
+##### Rekease 4.3
+* Fixed an error with gendered achievement descriptions
+
 ##### Release 4.0
 * Added accountwide settings
 * Added an "use accountwide settings" option to the settings of each character

@@ -67,7 +67,7 @@ function AchievementInfo.onAchievementUpdated(_, achId)
             tmpOutput = tmpOutput .. ", "
         end
 
-        tmpOutput = tmpOutput .. description .. " "
+        tmpOutput = tmpOutput .. zo_strformat("<<1>>", description) .. " "
         tmpOutput = tmpOutput .. AchievementInfo.calcCriteriaColor(numCompleted, numRequired) .. numCompleted .. "|r"
         tmpOutput = tmpOutput .. AchievementInfo.clrDefault .. "/" .. "|r"
         tmpOutput = tmpOutput .. AchievementInfo.clrCriteriaComplete .. numRequired .. "|r"
