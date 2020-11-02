@@ -1,6 +1,6 @@
 #### Notable Changes
 
-##### Rekease 4.3
+##### Release 4.3
 * Fixed an error with gendered achievement descriptions
 
 ##### Release 4.0
