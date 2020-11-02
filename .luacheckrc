@@ -19,5 +19,6 @@ read_globals = {
     "EVENT_MANAGER",
     "LINK_STYLE_BRACKET",
     "zo_callLater",
+    "zo_strformat",
     "ZO_SavedVars",
 }
