@@ -73,7 +73,12 @@ function AchievementInfo.onAchievementUpdated(_, achId)
         tmpOutput = tmpOutput .. AchievementInfo.clrCriteriaComplete .. numRequired .. "|r"
         tmpOutput = tmpOutput .. AchievementInfo.clrDefault
 
-        if AchievementInfo.settingGet("genShowOpenDetailsOnly") == true and numCompleted ~= numRequired then
+        if AchievementInfo.settingGet("genShowOpenDetailsOnly") == true then
+            if numCompleted ~= numRequired then
+                detailOutput[detailOutputCount] = tmpOutput
+                detailOutputCount = detailOutputCount + 1
+            end
+        else
             detailOutput[detailOutputCount] = tmpOutput
             detailOutputCount = detailOutputCount + 1
         end

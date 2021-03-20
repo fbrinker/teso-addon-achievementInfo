@@ -1,5 +1,8 @@
 #### Notable Changes
 
+##### Release 4.5
+* Fixed "ShowDetails" option working only in combination with "ShowOpenDetailsOnly"
+
 ##### Release 4.3
 * Fixed an error with gendered achievement descriptions
 
