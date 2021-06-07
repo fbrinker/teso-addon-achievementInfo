@@ -5,7 +5,7 @@
 [![Downloads](https://badgen.net/https/scripts.f-brinker.de/esoui-stats/badge-total.php?cache=1800)](https://www.esoui.com/downloads/info350-AchievementInfo.html)
 [![Favorites](https://badgen.net/https/scripts.f-brinker.de/esoui-stats/badge-fav.php?cache=1800)](https://www.esoui.com/downloads/info350-AchievementInfo.html)
 
-This is an **The Elderscrolls Online** addon. [See all details and the download @ESOUI](http://www.esoui.com/downloads/info350-AchievementInfo.html#info).
+This is a **The Elderscrolls Online** addon. [See all details and the download @ESOUI](http://www.esoui.com/downloads/info350-AchievementInfo.html#info).
 
 [Issue-Tracker](https://git.f-brinker.de/fbrinker/elderscrolls-addon-achievementInfo/issues)
 
@@ -13,12 +13,12 @@ This is an **The Elderscrolls Online** addon. [See all details and the download 
 
 ### What is this AddOn about?
 
-I like achievements and I like to know what to do to complete them and what type of achievements exist without browsing through the entire achievement catalog: This AddOn displays lightweight chat notifications if you make progress in an achievement (please see the screenshots).
+I like achievements, and I like to know what to do to complete them and what type of achievements exist without browsing through the entire achievement catalog: This AddOn displays lightweight chat notifications if you make progress in an achievement (please see the screenshots).
 
 ### Features
 
 * Shows chat notifications if you do something that is needed for an achievement
-* Triggers on each action or just in x% steps of the achievements requirements (configurable)
+* Triggers on each action or just in x% steps of the achievement's requirements (configurable)
 * Can show some details in the chat notification like (kill 250/1000 Humanoids)
 * You can toggle the notifications for each category
 * Lightweight: It is not always present and shows up only when necessary
@@ -33,9 +33,9 @@ I'll still be available here and be able to update the ESOUI page.
 
 ## How to contribute?
 
-**IMPORTANT: Github is a mirror.** Please contribute at [git.f-brinker.de/elderscrolls-addon-achievementInfo](https://git.f-brinker.de/fbrinker/elderscrolls-addon-achievementInfo) - You can login with your Github or Gitlab account (OAuth2).
+**IMPORTANT: Github is a mirror.** Please contribute at [git.f-brinker.de/elderscrolls-addon-achievementInfo](https://git.f-brinker.de/fbrinker/elderscrolls-addon-achievementInfo) - You can log in with your Github or Gitlab account (OAuth2).
 
-Then, create a fork of the repository, do what you have to do and create a pull-request afterwards. Feel free to contact me any time.
+Then, create a fork of the repository, do what you have to do, and create a pull-request afterward. Feel free to contact me any time.
 
 #### Linting
 Luacheck is used to check the LUA code. [Documentation](https://luacheck.readthedocs.io/en/stable/index.html)
