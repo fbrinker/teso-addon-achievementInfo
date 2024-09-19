@@ -49,7 +49,7 @@ function AchievementInfo.onAchievementUpdated(_, achId)
     local percentageStep        = false
     local percentageStepSize    = AchievementInfo.settingGet("genShowUpdateSteps")
 
-    local link = GetAchievementLink(achId, LINK_STYLE_BRACKET)
+    local link = GetAchievementLink(achId, LINK_STYLE_BRACKETS)
     local catName = "/"
 
     if categoryId ~= false then

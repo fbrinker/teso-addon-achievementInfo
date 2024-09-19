@@ -1,5 +1,8 @@
 #### Notable Changes
 
+##### Release 4.15
+* Fixed "bracket style" of the achievement links, thanks to DakJaniels
+
 ##### Release 4.5
 * Fixed "ShowDetails" option working only in combination with "ShowOpenDetailsOnly"
 

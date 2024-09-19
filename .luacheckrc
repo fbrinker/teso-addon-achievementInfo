@@ -17,7 +17,7 @@ read_globals = {
     "EVENT_ACHIEVEMENT_UPDATED",
     "EVENT_ADD_ON_LOADED",
     "EVENT_MANAGER",
-    "LINK_STYLE_BRACKET",
+    "LINK_STYLE_BRACKETS",
     "zo_callLater",
     "zo_strformat",
     "ZO_SavedVars",
