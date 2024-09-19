@@ -1,5 +1,6 @@
 # AchievementInfo
 
+[![Version Status](https://monitoring.f-brinker.de/api/badge/18/status)](https://monitoring.f-brinker.de/status/eso)
 [![Build Status](https://drone.f-brinker.de/api/badges/fbrinker/elderscrolls-addon-achievementInfo/status.svg)](https://drone.f-brinker.de/fbrinker/elderscrolls-addon-achievementInfo)
 [![Latest Releases](https://badgen.net/badge/releases/latest)](https://git.f-brinker.de/fbrinker/elderscrolls-addon-achievementInfo/releases)
 [![Downloads](https://badgen.net/https/scripts.f-brinker.de/esoui-stats/badge-total.php?cache=1800)](https://www.esoui.com/downloads/info350-AchievementInfo.html)
