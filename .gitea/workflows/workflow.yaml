@@ -1,0 +1,55 @@
+name: Workflow
+run-name: ${{ gitea.actor }} is linting and creating a new release on tag pushes 🚀
+on: [push]
+
+jobs:
+
+  Linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Run Luacheck linter
+        uses: lunarmodules/luacheck@v1
+
+  Release:
+    needs: [Linting]
+    if: ${{ startsWith(github.ref, 'refs/tags/') }} # only for tags
+    runs-on: ubuntu-latest
+    env:
+      Version: ${{ gitea.ref_name }}
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+        with:
+          path: sources
+      - name: Delete unneeded files/dirs
+        run: |
+          rm -rf sources/.git
+          rm -rf sources/.gitea
+          rm -rf sources/screenshots
+          rm -f sources/.luacheckrc
+      - name: Set Version and AddonVersion
+        run: |
+          echo "Version: ${{ env.Version }}"
+          export ADDON_VERSION=$(echo ${{ env.Version }} | sed -E 's/(0|)\.//g')
+          sed -i "s/0.123456789/${{ env.Version }}/g" sources/AchievementInfoCommon.lua
+          sed -i "s/0.123456789/${{ env.Version }}/g" sources/AchievementInfo.txt
+          sed -i "s/0.123456789/$ADDON_VERSION/g" sources/AchievementInfo.txt
+      - name: Rename and zip
+        run: |
+          mv sources AchievementInfo
+          zip -r "AchievementInfo-${{ env.Version }}.zip" ./AchievementInfo
+      - name: Create release
+        id: create_release
+        uses: akkuman/gitea-release-action@v1
+        with:
+          token: ${{ secrets.token }}
+          name: "AchievementInfo ${{ env.Version }}"
+          tag_name: "${{ env.Version }}"
+          body_path: AchievementInfo/CHANGELOG.md
+          draft: false
+          prerelease: false
+          sha256sum: true
+          files: |-
+            *.zip
